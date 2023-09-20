@@ -85,4 +85,4 @@ The code chunk below attempts to convert the character vector `char_vec` into a 
 as.numeric(pull(hw1_q2_df, char_vec))
 ```
 
-I was not able to convert the `char_vec` into a numeric vector using the `as.numeric` function, which explains why R was unable to take the mean of the vector. It contains non-numeric values.
+I was not able to convert the `char_vec` into a numeric vector using the `as.numeric` function and all that was returned was NA, which explains why R was unable to take the mean of the vector. It contains non-numeric values.
