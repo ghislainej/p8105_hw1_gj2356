@@ -38,10 +38,13 @@ temp_time_plot <- ggplot(data = early_january_weather,
                   labs(y= "Temperature (in Fahrenheit)", x = "Hourly Temperature and Date")
 print(temp_time_plot + labs(title = "Early January Temperature and Relative Humidity",
                             colour = "Relative Humidity"))
-ggsave("temp_time_plot.png")
 ```
 
 Looking at the scatter plot, the temperature fluctuates throughout the day as there is an oscillating pattern; however, the overall trend of the plot shows that there is a positive linear relationship between temperature and date. It appears to be getting warmer on average as January progresses. It also appears that low temperatures are typically associated with lower relative humidity and as the month progresses and the temperature rises, so does the relative humidity.
+
+```{r saving scatterplot, eval = FALSE}
+ggsave("temp_time_plot.png")
+```
 
 
 ## Problem 2
@@ -52,11 +55,34 @@ The code chunk below creates a data frame containing a sample size of 10 from a 
 hw1_q2_df <- tibble(
     norm_sample = rnorm(10),
     logic_vec = norm_sample > 0,
-    char_vec = c(length = 10),
-    fac_vec = factor(x = c(10), levels = 3)
+    char_vec = c("a","b","c","d","e","f","g","h","i","j"),
+    fac_vec = factor(c("apples","oranges","pears","apples","oranges","pears","apples","oranges","pears","apples"),
+                     levels = c("apples","oranges","pears") )
 )
 
-hw1_q2_df
-
+head(hw1_q2_df)
 ```
 
+The code chunk below attempts to take the mean of each variable in `hw1_q2_df`.
+
+```{r, eval = FALSE}
+mean(pull(hw1_q2_df, var = norm_sample))
+mean(pull(hw1_q2_df, var = logic_vec))
+mean(pull(hw1_q2_df, var = char_vec))
+mean(pull(hw1_q2_df, var = fac_vec))
+```
+
+* `norm_sample`: `r mean(pull(hw1_q2_df, var = norm_sample))`
+* `logic_vec`: `r mean(pull(hw1_q2_df, var = logic_vec))`
+* `char_vec`: `r mean(pull(hw1_q2_df, var = char_vec))`
+* `fac_vec`: `r mean(pull(hw1_q2_df, var = fac_vec))`
+
+I was able to take the mean of `norm_sample` and `logic_vec`, but was not able to take the mean of `char_vec` and `fac_vec`.
+
+The code chunk below attempts to convert the character vector `char_vec` into a numeric vector using the `as.numeric` function.
+
+```{r, eval = FALSE}
+as.numeric(pull(hw1_q2_df, char_vec))
+```
+
+I was not able to convert the `char_vec` into a numeric vector using the `as.numeric` function, which explains why R was unable to take the mean of the vector. It contains non-numeric values.
