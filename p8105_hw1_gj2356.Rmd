@@ -28,17 +28,22 @@ In the dataset `early_january-weather`, there are `r nrow(early_january_weather)
 * `visib`: visibility (in miles)
 * `time_hour`: date and hour of recording as a `POSIXct` date
 
-The mean temperature (in Fahrenheit) is `r mean(pull(early_january_weather,temp))`.
+The mean temperature (in Fahrenheit) is `r mean(pull(early_january_weather,temp))` Fahrenheit.
 
 The chunk below creates a scatterplot with `time_hour` on the x-axis and `temp` on the y-axis. The colors of the dots correspond to the humidity (`humid`).
 ```{r making a scatterplot}
 temp_time_plot <- ggplot(data = early_january_weather, 
                          aes( x = time_hour, y = temp, color = humid)) + 
                   geom_point() +
-                  labs(y= "Temperature (in Fahrenheit)", x = "Calendar Date")
+                  labs(y= "Temperature (in Fahrenheit)", x = "Hourly Temperature and Date")
 print(temp_time_plot + labs(title = "Early January Temperature and Relative Humidity",
                             colour = "Relative Humidity"))
+ggsave(temp_time_plot)
 ```
 
+Looking at the scatter plot, the temperature fluctuates throughout the day as there is an oscillating pattern; however, the overall trend of the plot shows that there is a positive linear relationship between temperature and date. It appears to be getting warmer on average as January progresses. It also appears that low temperatures are typically associated with lower relative humidity and as the month progresses and the temperature rises, so does the relative humidity.
 
+```{r}
+
+```
 
