@@ -38,12 +38,25 @@ temp_time_plot <- ggplot(data = early_january_weather,
                   labs(y= "Temperature (in Fahrenheit)", x = "Hourly Temperature and Date")
 print(temp_time_plot + labs(title = "Early January Temperature and Relative Humidity",
                             colour = "Relative Humidity"))
-ggsave(temp_time_plot)
+ggsave("temp_time_plot.png")
 ```
 
 Looking at the scatter plot, the temperature fluctuates throughout the day as there is an oscillating pattern; however, the overall trend of the plot shows that there is a positive linear relationship between temperature and date. It appears to be getting warmer on average as January progresses. It also appears that low temperatures are typically associated with lower relative humidity and as the month progresses and the temperature rises, so does the relative humidity.
 
+
+## Problem 2
+
+The code chunk below creates a data frame containing a sample size of 10 from a standard Normal distribution, a logical vector indicating whether elements of the sample are greater than 0, a character vector of length 10, and a factor vector of length 10 with 3 different factor "levels".
+
 ```{r}
+hw1_q2_df <- tibble(
+    norm_sample = rnorm(10),
+    logic_vec = norm_sample > 0,
+    char_vec = c(length = 10),
+    fac_vec = factor(x = c(10), levels = 3)
+)
+
+hw1_q2_df
 
 ```
 
