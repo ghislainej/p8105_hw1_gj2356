@@ -1,0 +1,21 @@
+---
+title: "Homework 1"
+author: "Ghislaine Jumonville"
+date: 2023-09-14
+output: html_document
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+```
+
+## Problem 1
+
+```{r}
+library(moderndive)
+data("early_january_weather")
+```
+
+In the dataset `early_january-weather`, there are `r nrow(early_january_weather)` observations and `r ncol(early_january_weather)` variables : `origin`, `year`, `month`, `day`, `hour`, `temp`, `dewp`, `humid`, `wind_dir`, `wind_speed`, `wind_gust`, `precp`, `pressure`, `visib`, and `time_hour`.
+
+
